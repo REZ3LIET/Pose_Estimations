@@ -1,6 +1,12 @@
-# Body_Estimations
-- Body estimation uses movenet model, [more dteails](https://tfhub.dev/google/lite-model/movenet/singlepose/lightning/tflite/float16/4)
-- To run body_tracking.py run the script from Pose_Estimation/Body_Estimation/Codes or `python Pose_Estimation/Body_Estimation/Codesbody_tracking.py`
+# Pose_Estimation
+This project contains Full Body estimation and Hand Estimation both using mediapipe library. These projects were done with reference to
+[freeCodeCamp.org](https://www.youtube.com/watch?v=01sAkU_NvOY) video.
 
-## Hand Estimation
-Learning implementation and experimentation of advanced computer vision from [freeCodeCamp.org](https://www.youtube.com/watch?v=01sAkU_NvOY)
+## Body_Estimations
+
+### Usage
+
+## Hand_Estimation
+This contins the module [hand_tracking_module.py](./Hand_Estimation/Codes/hand_tracking_module.py) which can be used to track the landmarks on hand(s) and also display them.
+
+### Usage
