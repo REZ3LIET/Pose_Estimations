@@ -48,7 +48,7 @@ class HandPoseDetect:
 def main(image=False):
     detector = HandPoseDetect()
     if image:
-        ori_img = cv.imread("Pose_Estimations\\Hand_Estimation\\Data\\Images\\typing.jpg")
+        ori_img = cv.imread("typing.jpg")
         cv.imshow("Original", ori_img)
 
         img = ori_img.copy()
@@ -60,7 +60,7 @@ def main(image=False):
         cv.waitKey(0)
 
     else:
-        cap = cv.VideoCapture("Pose_Estimations\\Hand_Estimation\\Data\\Videos\\piano_playing.mp4")
+        cap = cv.VideoCapture("piano_playing.mp4")
         prev_time = time.time()
         cur_time = 0
         while True:

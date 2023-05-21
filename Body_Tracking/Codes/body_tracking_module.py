@@ -33,7 +33,7 @@ class BodyPoseDetect:
 def main(image):
     detector = BodyPoseDetect()
     if image:
-        ori_img = cv.imread("E:\\Github\\Advanced_CV\\Pose_Estimations\\Body_Estimation\\Data\\Images\\dance.jpg")
+        ori_img = cv.imread("dance.jpg")
         
         img = ori_img.copy()
         landmarks, output_img = detector.detect_landmarks(img)
@@ -45,7 +45,7 @@ def main(image):
         cv.waitKey(0)
     
     else:
-        cap = cv.VideoCapture("E:\\Github\\Advanced_CV\\Pose_Estimations\\Body_Estimation\\Data\\Videos\\dance.mp4")
+        cap = cv.VideoCapture("dance.mp4")
         prev_time = time.time()
         cur_time = 0
 

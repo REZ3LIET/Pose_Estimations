@@ -34,7 +34,7 @@ class FaceDetect:
 def main(image=True):
     detector = FaceDetect(static_image=False)
     if image:
-        ori_img = cv.imread("E:\Github\Advanced_CV\Pose_Estimations\Face_Estimation\Data\Images\human_3.jpg")
+        ori_img = cv.imread("human_3.jpg")
         img = ori_img.copy()
         landmarks, output = detector.detect_mesh(img)
         mesh_info = detector.get_info(landmarks, img.shape[:2])
@@ -44,8 +44,7 @@ def main(image=True):
         cv.waitKey(0)
 
     else:
-        # cap = cv.VideoCapture("E:\Github\Advanced_CV\Pose_Estimations\Face_Estimation\Data\Videos\humans_3.mp4")
-        cap = cv.VideoCapture(0)
+        cap = cv.VideoCapture("humans_3.mp4")
         curr_time = 0
         prev_time = time.time()
 

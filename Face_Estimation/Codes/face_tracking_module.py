@@ -46,7 +46,7 @@ class FaceTrack:
 def main(image=True):
     detector = FaceTrack(model_type=1)
     if image:
-        ori_img = cv.imread("E:\Github\Advanced_CV\Pose_Estimations\Face_Estimation\Data\Images\human_2.jpg")
+        ori_img = cv.imread("human_2.jpg")
         img = ori_img.copy()
 
         detection, output = detector.detect_face(img, disp=True)
@@ -59,7 +59,7 @@ def main(image=True):
         cv.waitKey(0)
     
     else:
-        cap = cv.VideoCapture("E:\\Github\Advanced_CV\\Pose_Estimations\\Face_Estimation\\Data\\Videos\\humans_2.mp4")
+        cap = cv.VideoCapture("humans_2.mp4")
         curr_time = 0
         prev_time = time.time()
 
