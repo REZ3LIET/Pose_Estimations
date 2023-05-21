@@ -12,7 +12,12 @@ This contins the module [hand_tracking_module.py](./Hand_Estimation/Codes/hand_t
 
 ### Usage
 
-## Face_Estimation
-This contins the module [face_tracking_module.py](./Face_Estimation/Codes/face_tracking_module.py) which can be used to detect and track the face by drawing a bounding box around it. To detect faces at close range set.
+## Face_Tracking
+This contins the module [face_tracking_module.py](./Face_Estimation/Codes/face_tracking_module.py) which can be used to detect and track the face by drawing a bounding box around it. To detect faces at farther range set model type to 1.
+
+### Usage
+
+## Face_Mesh_Detection
+This contins the module [face_mesh_detection_module.py](./Face_Estimation/Codes/face_mesh_detection_module.py) which can be used to detect and track the face by drawing a mesh on it around it. Max 2 faces can be detected.
 
 ### Usage
