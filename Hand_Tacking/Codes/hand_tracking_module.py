@@ -1,6 +1,7 @@
+import os
 import time
+import argparse
 import cv2 as cv
-import numpy as np
 import mediapipe as mp
 
 class HandPoseDetect:
@@ -45,22 +46,22 @@ class HandPoseDetect:
 
         return lm_list
 
-def main(image=False):
-    detector = HandPoseDetect()
-    if image:
-        ori_img = cv.imread("typing.jpg")
-        cv.imshow("Original", ori_img)
+def main(path, is_image=True):
+    if is_image:
+        detector = HandPoseDetect(static_image=True)
+        ori_img = cv.imread(path)
 
         img = ori_img.copy()
         landmarks, output_img = detector.detect_landmarks(img)
         info_landmarks = detector.get_info(landmarks, 3, img)
-        print(info_landmarks)
+        # print(info_landmarks)
 
         cv.imshow("Landmarks", output_img)
         cv.waitKey(0)
 
     else:
-        cap = cv.VideoCapture("piano_playing.mp4")
+        detector = HandPoseDetect()
+        cap = cv.VideoCapture(path)
         prev_time = time.time()
         cur_time = 0
         while True:
@@ -72,6 +73,7 @@ def main(image=False):
             img = frame.copy()
             landmarks, output_img = detector.detect_landmarks(img)
             info_landmarks = detector.get_info(landmarks, 3, img)
+            # print(info_landmarks)
 
             cur_time = time.time()
             fps = 1/(cur_time - prev_time)
@@ -89,4 +91,15 @@ def main(image=False):
 
 
 if __name__ == "__main__":
-    main(image=False)
+    parser = argparse.ArgumentParser(description="Type of media and path to it")
+    parser.add_argument("path", help="Path to media from current working directory")
+    parser.add_argument("--image", action="store_true", help="If media in an image")
+
+    args = parser.parse_args()
+    is_image = args.image
+    media_path = args.path
+
+    if os.path.exists(os.path.join(os.getcwd(), media_path)):
+        main(media_path, is_image)
+    else:
+        print("Invalid Path")

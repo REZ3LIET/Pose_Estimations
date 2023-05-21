@@ -1,4 +1,6 @@
+import os
 import time
+import argparse
 import cv2 as cv
 import mediapipe as mp
 
@@ -23,28 +25,32 @@ class FaceDetect:
     def get_info(self, detected_landmarks, img_dims):
         landmarks_info = []
         img_height, img_width = img_dims
-        for f_id, face in enumerate(detected_landmarks):
+        for _, face in enumerate(detected_landmarks):
+            mesh_info = []
             for id, landmarks in enumerate(face.landmark):
                 x, y = int(landmarks.x * img_width), int(landmarks.y * img_height)
-                landmarks_info.append((f_id, id, x, y))
+                mesh_info.append((id, x, y))
+            landmarks_info.append(mesh_info)
 
         return landmarks_info
-        
 
-def main(image=True):
-    detector = FaceDetect(static_image=False)
-    if image:
-        ori_img = cv.imread("human_3.jpg")
+def main(path, is_image=True):
+    print(path)
+    if is_image:
+        detector = FaceDetect()
+        ori_img = cv.imread(path)
         img = ori_img.copy()
         landmarks, output = detector.detect_mesh(img)
-        mesh_info = detector.get_info(landmarks, img.shape[:2])
-        print(mesh_info)
+        if landmarks:
+            mesh_info = detector.get_info(landmarks, img.shape[:2])
+            print(mesh_info)
 
         cv.imshow("Result", output)
         cv.waitKey(0)
 
     else:
-        cap = cv.VideoCapture("humans_3.mp4")
+        detector = FaceDetect(static_image=False)
+        cap = cv.VideoCapture(path)
         curr_time = 0
         prev_time = time.time()
 
@@ -55,22 +61,32 @@ def main(image=True):
                 break
 
             img = frame.copy()
-
             landmarks, output = detector.detect_mesh(img)
             if landmarks:
                 mesh_info = detector.get_info(landmarks, img.shape[:2])
-                # print(mesh_info)
+                # print(len(mesh_info))
 
             curr_time = time.time()
             fps = 1/(curr_time - prev_time)
             prev_time = curr_time
-            cv.putText(img, f'FPS: {str(int(fps))}', (10, 70), cv.FONT_HERSHEY_COMPLEX_SMALL, 2, (0, 50, 170), 2)
+            cv.putText(output, f'FPS: {str(int(fps))}', (10, 70), cv.FONT_HERSHEY_COMPLEX_SMALL, 2, (0, 50, 170), 2)
 
             cv.imshow("Result", output)
-            if cv.waitKey(1) & 0xFF == ord('q'):
+            if cv.waitKey(20) & 0xFF == ord('q'):
                 break
         cap.release()
     cv.destroyAllWindows()
 
 if __name__ == "__main__":
-    main(False)
+    parser = argparse.ArgumentParser(description="Type of media and path to it")
+    parser.add_argument("path", help="Path to media from current working directory")
+    parser.add_argument("--image", action="store_true", help="If media in an image")
+
+    args = parser.parse_args()
+    is_image = args.image
+    media_path = args.path
+
+    if os.path.exists(os.path.join(os.getcwd(), media_path)):
+        main(media_path, is_image)
+    else:
+        print("Invalid Path")

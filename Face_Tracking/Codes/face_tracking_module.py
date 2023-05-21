@@ -1,4 +1,6 @@
+import os
 import time
+import argparse
 import cv2 as cv
 import mediapipe as mp
 
@@ -43,10 +45,10 @@ class FaceTrack:
 
         return img
 
-def main(image=True):
+def main(path, is_image=True):
     detector = FaceTrack(model_type=1)
-    if image:
-        ori_img = cv.imread("human_2.jpg")
+    if is_image:
+        ori_img = cv.imread(path)
         img = ori_img.copy()
 
         detection, output = detector.detect_face(img, disp=True)
@@ -54,12 +56,11 @@ def main(image=True):
         # print(bounding_box_info)
         output = detector.draw_detection(bounding_box_info, output)
 
-        cv.imshow("Original", ori_img)
         cv.imshow("Detected", output)
         cv.waitKey(0)
     
     else:
-        cap = cv.VideoCapture("humans_2.mp4")
+        cap = cv.VideoCapture(path)
         curr_time = 0
         prev_time = time.time()
 
@@ -89,4 +90,15 @@ def main(image=True):
     cv.destroyAllWindows()
 
 if __name__ == "__main__":
-    main(False)
+    parser = argparse.ArgumentParser(description="Type of media and path to it")
+    parser.add_argument("path", help="Path to media from current working directory")
+    parser.add_argument("--image", action="store_true", help="If media in an image")
+
+    args = parser.parse_args()
+    is_image = args.image
+    media_path = args.path
+
+    if os.path.exists(os.path.join(os.getcwd(), media_path)):
+        main(media_path, is_image)
+    else:
+        print("Invalid Path")

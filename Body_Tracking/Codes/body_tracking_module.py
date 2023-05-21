@@ -1,4 +1,6 @@
+import os
 import time
+import argparse
 import cv2 as cv
 import mediapipe as mp
 
@@ -30,22 +32,23 @@ class BodyPoseDetect:
         
         return lm_list
 
-def main(image):
-    detector = BodyPoseDetect()
-    if image:
-        ori_img = cv.imread("dance.jpg")
+def main(path, is_image=True):
+    if is_image:
+        detector = BodyPoseDetect(static_image=True)
+        ori_img = cv.imread(path)
         
         img = ori_img.copy()
         landmarks, output_img = detector.detect_landmarks(img)
         info_landmarks = detector.get_info(landmarks, img)
-        print(info_landmarks[3])
+        # print(info_landmarks[3])
 
         cv.imshow("Original", ori_img)
         cv.imshow("Detection", output_img)
         cv.waitKey(0)
     
     else:
-        cap = cv.VideoCapture("dance.mp4")
+        detector = BodyPoseDetect()
+        cap = cv.VideoCapture(path)
         prev_time = time.time()
         cur_time = 0
 
@@ -75,4 +78,15 @@ def main(image):
     cv.destroyAllWindows()
 
 if __name__ == "__main__":
-    main(image=False)
+    parser = argparse.ArgumentParser(description="Type of media and path to it")
+    parser.add_argument("path", help="Path to media from current working directory")
+    parser.add_argument("--image", action="store_true", help="If media in an image")
+
+    args = parser.parse_args()
+    is_image = args.image
+    media_path = args.path
+
+    if os.path.exists(os.path.join(os.getcwd(), media_path)):
+        main(media_path, is_image)
+    else:
+        print("Invalid Path")
