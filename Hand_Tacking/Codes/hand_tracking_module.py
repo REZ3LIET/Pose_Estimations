@@ -21,7 +21,7 @@ class HandPoseDetect:
                     self.mp_draw.draw_landmarks(img, h_landmark, self.mp_hands.HAND_CONNECTIONS)
         return detected_landmarks, img
 
-    def get_info(self, detected_landmarks, hand_no, img):
+    def get_info(self, detected_landmarks, img_dims, hand_no=1):
         lm_list = []
         if not detected_landmarks:
             return lm_list
@@ -39,7 +39,7 @@ class HandPoseDetect:
         else:
             hand_no -= 1
 
-        height, width, _ = img.shape
+        height, width = img_dims
         for id, h_landmarks in enumerate(detected_landmarks[hand_no].landmark):
             cord_x, cord_y = int(h_landmarks.x * width), int(h_landmarks.y * height)
             lm_list.append([id, cord_x, cord_y])
@@ -53,7 +53,7 @@ def main(path, is_image=True):
 
         img = ori_img.copy()
         landmarks, output_img = detector.detect_landmarks(img)
-        info_landmarks = detector.get_info(landmarks, 3, img)
+        info_landmarks = detector.get_info(landmarks, 3, img.shape[:2])
         # print(info_landmarks)
 
         cv.imshow("Landmarks", output_img)
@@ -72,7 +72,7 @@ def main(path, is_image=True):
 
             img = frame.copy()
             landmarks, output_img = detector.detect_landmarks(img)
-            info_landmarks = detector.get_info(landmarks, 3, img)
+            info_landmarks = detector.get_info(landmarks, 3, img.shape[:2])
             # print(info_landmarks)
 
             cur_time = time.time()
