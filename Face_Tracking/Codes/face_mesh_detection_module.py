@@ -43,7 +43,7 @@ def main(path, is_image=True):
         landmarks, output = detector.detect_mesh(img)
         if landmarks:
             mesh_info = detector.get_info(landmarks, img.shape[:2])
-            print(mesh_info)
+            # print(mesh_info)
 
         cv.imshow("Result", output)
         cv.waitKey(0)
@@ -74,16 +74,17 @@ def main(path, is_image=True):
             cv.imshow("Result", output)
             if cv.waitKey(20) & 0xFF == ord('q'):
                 break
+
         cap.release()
     cv.destroyAllWindows()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Type of media and path to it")
-    parser.add_argument("path", help="Path to media from current working directory")
-    parser.add_argument("--image", action="store_true", help="If media in an image")
+    parser.add_argument("-p", "--path", default="Data\\Images\\human_3.jpg", help="Path to media from current working directory")
+    parser.add_argument("-v", "--video", action="store_false", help="Tells the program that media is video")
 
     args = parser.parse_args()
-    is_image = args.image
+    is_image = args.video
     media_path = args.path
 
     if os.path.exists(os.path.join(os.getcwd(), media_path)):

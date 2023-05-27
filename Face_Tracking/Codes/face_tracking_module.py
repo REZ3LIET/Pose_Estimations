@@ -74,7 +74,7 @@ def main(path, is_image=True):
             detection, output = detector.detect_face(img)
             if detection:
                 bounding_box_info = detector.get_info(detection, img.shape[:2])
-                print(bounding_box_info)
+                # print(bounding_box_info)
                 output = detector.draw_detection(bounding_box_info, output)
 
             curr_time = time.time()
@@ -91,11 +91,11 @@ def main(path, is_image=True):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Type of media and path to it")
-    parser.add_argument("path", help="Path to media from current working directory")
-    parser.add_argument("--image", action="store_true", help="If media in an image")
+    parser.add_argument("-p", "--path", default="Data\\Images\\human_2.jpg", help="Path to media from current working directory")
+    parser.add_argument("-v", "--video", action="store_false", help="Tells the program that media is video")
 
     args = parser.parse_args()
-    is_image = args.image
+    is_image = args.video
     media_path = args.path
 
     if os.path.exists(os.path.join(os.getcwd(), media_path)):
