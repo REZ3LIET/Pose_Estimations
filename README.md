@@ -8,7 +8,7 @@ This contains the module [body_estimation_module.py](./Body_Estimation/Codes/bod
 ### Usage
 To use the [body_estimation_module.py](./Body_Estimation/Codes/body_tracking_module.py) go to `Body_Estimation` directory in terminal
 - For default execution:  
-`python3 Codes/bodytracking_module.py`
+```python3 Codes/bodytracking_module.py```
 - To execute with an image  
 `python3 Codes/bodytracking_module.py -p Data/Images/handstand.jpg`
 - To execute on a video  
