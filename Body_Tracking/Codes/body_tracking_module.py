@@ -20,12 +20,12 @@ class BodyPoseDetect:
                 self.mp_draw.draw_landmarks(img, detected_landmarks, self.mp_body.POSE_CONNECTIONS)
         return detected_landmarks, img
     
-    def get_info(self, detected_landmarks, img):
+    def get_info(self, detected_landmarks, img_dims):
         lm_list = []
         if not detected_landmarks:
             return lm_list
 
-        height, width, _ = img.shape
+        height, width = img_dims
         for id, b_landmark in enumerate(detected_landmarks.landmark):
             cord_x, cord_y = int(b_landmark.x * width), int(b_landmark.y * height)
             lm_list.append([id, cord_x, cord_y])

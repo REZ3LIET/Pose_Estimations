@@ -89,7 +89,6 @@ def main(path, is_image=True):
 
     cv.destroyAllWindows()
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Type of media and path to it")
     parser.add_argument("path", help="Path to media from current working directory")
