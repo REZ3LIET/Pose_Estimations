@@ -1,6 +1,12 @@
 # Pose_Estimation
 This project contains Full Body estimation, Face Tracking and Hand Estimation all using mediapipe library. These projects were done with help of [freeCodeCamp.org](https://www.youtube.com/watch?v=01sAkU_NvOY) video.
 
+## Installation
+To use this repo use
+```bash
+git clone https://github.com/REZ3LIET/Pose_Estimations.git
+```
+
 ## Body_Estimations
 <img src="./Results/body_tracking_result.jpg"  width=25% height=25%> <br>
 This contains the module [body_estimation_module.py](./Body_Estimation/Codes/body_tracking_module.py) which can be used to track the landmarks on a human body. It is limited to tracking a single person at a time and gives 33 unique landmarks on the body.
@@ -8,11 +14,17 @@ This contains the module [body_estimation_module.py](./Body_Estimation/Codes/bod
 ### Usage
 To use the [body_estimation_module.py](./Body_Estimation/Codes/body_tracking_module.py) go to `Body_Estimation` directory in terminal
 - For default execution:  
-`python3 Codes/bodytracking_module.py`
+```bash
+python3 Codes/bodytracking_module.py
+```
 - To execute with an image  
-`python3 Codes/bodytracking_module.py -p Data/Images/handstand.jpg`
+```bash
+python3 Codes/bodytracking_module.py -p Data/Images/handstand.jpg
+```
 - To execute on a video  
-`python3 Codes/bodytracking_module.py -v -p Data/Videos/dance.mp4`
+```bash
+python3 Codes/bodytracking_module.py -v -p Data/Videos/dance.mp4
+```
 
 ## Hand_Estimation
 <img src="./Results/hand_track_result.jpg"  width=25% height=25%> <br>
@@ -21,11 +33,17 @@ This contains the module [hand_tracking_module.py](./Hand_Estimation/Codes/hand_
 ### Usage
 To use the [hand_tracking_module.py](./Hand_Estimation/Codes/hand_tracking_module.py) go to `Hand_Estimation` directory in terminal
 - For default execution:  
-`python3 Codes/hand_tracking_module.py`
+```bash
+python3 Codes/hand_tracking_module.py
+```
 - To execute with an image  
-`python3 Codes/hand_tracking_module.py -p Data/Images/covered_face.jpg`
+```bash
+python3 Codes/hand_tracking_module.py -p Data/Images/covered_face.jpg
+```
 - To execute on a video  
-`python3 Codes/hand_tracking_module.py -v -p Data/Videos/piano_playing.mp4` 
+```bash
+python3 Codes/hand_tracking_module.py -v -p Data/Videos/piano_playing.mp4
+```
 
 ## Face_Tracking
 <img src="./Results/face_track_result.jpg"  width=25% height=25%> <br>
@@ -34,11 +52,17 @@ This contains the module [face_tracking_module.py](./Face_Estimation/Codes/face_
 ### Usage
 To use the [face_tracking_module.py](./Face_Estimation/Codes/face_tracking_module.py) go to `Face_Estimation` directory in terminal
 - For default execution:  
-`python3 Codes/face_tracking_module.py`
+```bash
+python3 Codes/face_tracking_module.py
+```
 - To execute with an image  
-`python3 Codes/face_tracking_module.py -p Data/Images/human_3.jpg`
+```bash
+python3 Codes/face_tracking_module.py -p Data/Images/human_3.jpg
+```
 - To execute on a video  
-`python3 Codes/face_tracking_module.py -v -p Data/Videos/humans_1.mp4` 
+```bash
+python3 Codes/face_tracking_module.py -v -p Data/Videos/humans_1.mp4
+```
 
 ## Face_Mesh_Detection
 <img src="./Results/face_mesh_result.jpg"  width=25% height=25%> <br>
@@ -47,8 +71,14 @@ This contains the module [face_mesh_detection_module.py](./Face_Estimation/Codes
 ### Usage
 To use the [face_mesh_detection_module.py](./Face_Estimation/Codes/face_mesh_detection_module.py) go to `Face_Estimation` directory in terminal
 - For default execution:  
-`python3 Codes/face_mesh_detection_module.py`
+```bash
+python3 Codes/face_mesh_detection_module.py
+```
 - To execute with an image  
-`python3 Codes/face_mesh_detection_module.py -p Data/Images/human_2.jpg`
+```bash
+python3 Codes/face_mesh_detection_module.py -p Data/Images/human_2.jpg
+```
 - To execute on a video  
-`python3 Codes/face_mesh_detection_module.py -v -p Data/Videos/humans_2.mp4` 
+```bash
+python3 Codes/face_mesh_detection_module.py -v -p Data/Videos/humans_2.mp4
+```
