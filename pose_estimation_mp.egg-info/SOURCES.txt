@@ -3,7 +3,12 @@ README.md
 pose_estimation_mp
 setup.py
 Body_Tracking/__init__.py
+Body_Tracking/body_tracking_module.py
+Face_Tracking/__init__.py
+Face_Tracking/face_mesh_detection_module.py
+Face_Tracking/face_tracking_module.py
 Hand_Tacking/__init__.py
+Hand_Tacking/hand_tracking_module.py
 pose_estimation_mp.egg-info/PKG-INFO
 pose_estimation_mp.egg-info/SOURCES.txt
 pose_estimation_mp.egg-info/dependency_links.txt

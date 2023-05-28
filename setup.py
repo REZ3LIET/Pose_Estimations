@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
      name='pose_estimation_mp',  
-     version='0.1.3',
+     version='0.1.4',
      scripts=['pose_estimation_mp'] ,
      author="Samar Kale",
      author_email="rz.samar.kale@gmail.com",
