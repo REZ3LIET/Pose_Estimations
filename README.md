@@ -15,87 +15,127 @@ To use this repo use
 ```bash
 git clone https://github.com/REZ3LIET/Pose_Estimations.git
 ```
+or
+```bash
+pip3 install pose-estimation-mp
+```
 
 ## Body_Estimations
 
 <img src="https://github.com/REZ3LIET/Pose_Estimations/blob/main/Results/body_tracking_result.jpg"  width=25% height=25%> <br>
-This contains the module [body_estimation_module.py](./Body_Estimation/Codes/body_tracking_module.py) which can be used to track the landmarks on a human body. It is limited to tracking a single person at a time and gives 33 unique landmarks on the body.
+This contains the module [body_estimation_module.py](./Body_Tracking/body_tracking_module.py) which can be used to track the landmarks on a human body. It is limited to tracking a single person at a time and gives 33 unique landmarks on the body.
 
 ### Usage
 
-To use the [body_estimation_module.py](./Body_Estimation/Codes/body_tracking_module.py) go to `Body_Estimation` directory in terminal
+To use [body_estimation_module.py](./Body_Tracking/body_tracking_module.py) in your code simply import one of the following ways:
+```bash
+import Body_Tracking
+from Body_Tracking import body_tracking_module as btm
+from Body_Tracking.body_tracking_module import BodyPoseDetect
+```
+
+### Example
+
+To use the [body_estimation_module.py](./Body_Tracking/body_tracking_module.py) go to `Body_Tracking` directory in terminal
 - For default execution:  
 ```bash
-python3 Codes/bodytracking_module.py
+python3 bodytracking_module.py
 ```
 - To execute with an image  
 ```bash
-python3 Codes/bodytracking_module.py -p Data/Images/handstand.jpg
+python3 bodytracking_module.py -p Data/Images/handstand.jpg
 ```
 - To execute on a video  
 ```bash
-python3 Codes/bodytracking_module.py -v -p Data/Videos/dance.mp4
+python3 bodytracking_module.py -v -p Data/Videos/dance.mp4
 ```
 
 ## Hand_Estimation
 
 <img src="https://github.com/REZ3LIET/Pose_Estimations/blob/main/Results/hand_track_result.jpg"  width=25% height=25%> <br>
-This contains the module [hand_tracking_module.py](./Hand_Estimation/Codes/hand_tracking_module.py) which can be used to track the landmarks on hand(s) and also display them. It can track maximum of 2 handas at an instant.
+This contains the module [hand_tracking_module.py](./Hand_Tacking/hand_tracking_module.py) which can be used to track the landmarks on hand(s) and also display them. It can track maximum of 2 handas at an instant.
 
 ### Usage
 
-To use the [hand_tracking_module.py](./Hand_Estimation/Codes/hand_tracking_module.py) go to `Hand_Estimation` directory in terminal
+To use [hand_tracking_module.py](./Hand_Tacking/hand_tracking_module.py) in your code simply import one of the following ways:
+```bash
+import Hand_Tacking
+from Hand_Tacking import hand_tracking_module as htm
+from Hand_Tacking.hand_tracking_module import HandPoseDetect
+```
+
+### Example
+
+To use the [hand_tracking_module.py](./Hand_Tacking/hand_tracking_module.py) go to `Hand_Tacking` directory in terminal
 - For default execution:  
 ```bash
-python3 Codes/hand_tracking_module.py
+python3 hand_tracking_module.py
 ```
 - To execute with an image  
 ```bash
-python3 Codes/hand_tracking_module.py -p Data/Images/covered_face.jpg
+python3 hand_tracking_module.py -p Data/Images/covered_face.jpg
 ```
 - To execute on a video  
 ```bash
-python3 Codes/hand_tracking_module.py -v -p Data/Videos/piano_playing.mp4
+python3 hand_tracking_module.py -v -p Data/Videos/piano_playing.mp4
 ```
 
 ## Face_Tracking
 
 <img src="https://github.com/REZ3LIET/Pose_Estimations/blob/main/Results/face_track_result.jpg"  width=25% height=25%> <br>
-This contains the module [face_tracking_module.py](./Face_Estimation/Codes/face_tracking_module.py) which can be used to detect and track the face by drawing a bounding box around it. To detect faces at farther range set model type to 1.
+This contains the module [face_tracking_module.py](./Face_Tracking/face_tracking_module.py) which can be used to detect and track the face by drawing a bounding box around it. To detect faces at farther range set model type to 1.
 
 ### Usage
 
-To use the [face_tracking_module.py](./Face_Estimation/Codes/face_tracking_module.py) go to `Face_Estimation` directory in terminal
+To use [face_tracking_module.py](./Face_Tracking/face_tracking_module.py) in your code simply import one of the following ways:
+```bash
+import Face_Tracking
+from Face_Tracking import face_tracking_module as ftm
+from Face_Tracking.face_tracking_module import FaceTrack
+```
+
+### Example
+
+To use the [face_tracking_module.py](./Face_Tracking/face_tracking_module.py) go to `Face_Tracking` directory in terminal
 - For default execution:  
 ```bash
-python3 Codes/face_tracking_module.py
+python3 face_tracking_module.py
 ```
 - To execute with an image  
 ```bash
-python3 Codes/face_tracking_module.py -p Data/Images/human_3.jpg
+python3 face_tracking_module.py -p Data/Images/human_3.jpg
 ```
 - To execute on a video  
 ```bash
-python3 Codes/face_tracking_module.py -v -p Data/Videos/humans_1.mp4
+python3 face_tracking_module.py -v -p Data/Videos/humans_1.mp4
 ```
 
 ## Face_Mesh_Detection
 
 <img src="https://github.com/REZ3LIET/Pose_Estimations/blob/main/Results/face_mesh_result.jpg"  width=25% height=25%> <br>
-This contains the module [face_mesh_detection_module.py](./Face_Estimation/Codes/face_mesh_detection_module.py) which can be used to detect and track the face by drawing a mesh on it around it. Max 2 faces can be detected.
+This contains the module [face_mesh_detection_module.py](./Face_Tracking/face_mesh_detection_module.py) which can be used to detect and track the face by drawing a mesh on it around it. Max 2 faces can be detected.
 
 ### Usage
 
-To use the [face_mesh_detection_module.py](./Face_Estimation/Codes/face_mesh_detection_module.py) go to `Face_Estimation` directory in terminal
+To use [face_mesh_detection_module.py](./Face_Tracking/face_mesh_detection_module.py) in your code simply import one of the following ways:
+```bash
+import Face_Tracking
+from Face_Tracking import face_mesh_detection_module as ftm
+from Face_Tracking.face_mesh_detection_module import FaceDetect
+```
+
+### Example
+
+To use the [face_mesh_detection_module.py](./Face_Tracking/face_mesh_detection_module.py) go to `Face_Tracking` directory in terminal
 - For default execution:  
 ```bash
-python3 Codes/face_mesh_detection_module.py
+python3 face_mesh_detection_module.py
 ```
 - To execute with an image  
 ```bash
-python3 Codes/face_mesh_detection_module.py -p Data/Images/human_2.jpg
+python3 face_mesh_detection_module.py -p Data/Images/human_2.jpg
 ```
 - To execute on a video  
 ```bash
-python3 Codes/face_mesh_detection_module.py -v -p Data/Videos/humans_2.mp4
+python3 face_mesh_detection_module.py -v -p Data/Videos/humans_2.mp4
 ```
