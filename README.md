@@ -18,7 +18,7 @@ git clone https://github.com/REZ3LIET/Pose_Estimations.git
 
 ## Body_Estimations
 
-<img src="./Results/body_tracking_result.jpg"  width=25% height=25%> <br>
+<img src="https://github.com/REZ3LIET/Pose_Estimations/blob/main/Results/body_tracking_result.jpg"  width=25% height=25%> <br>
 This contains the module [body_estimation_module.py](./Body_Estimation/Codes/body_tracking_module.py) which can be used to track the landmarks on a human body. It is limited to tracking a single person at a time and gives 33 unique landmarks on the body.
 
 ### Usage
@@ -39,7 +39,7 @@ python3 Codes/bodytracking_module.py -v -p Data/Videos/dance.mp4
 
 ## Hand_Estimation
 
-<img src="./Results/hand_track_result.jpg"  width=25% height=25%> <br>
+<img src="https://github.com/REZ3LIET/Pose_Estimations/blob/main/Results/hand_track_result.jpg"  width=25% height=25%> <br>
 This contains the module [hand_tracking_module.py](./Hand_Estimation/Codes/hand_tracking_module.py) which can be used to track the landmarks on hand(s) and also display them. It can track maximum of 2 handas at an instant.
 
 ### Usage
@@ -60,7 +60,7 @@ python3 Codes/hand_tracking_module.py -v -p Data/Videos/piano_playing.mp4
 
 ## Face_Tracking
 
-<img src="./Results/face_track_result.jpg"  width=25% height=25%> <br>
+<img src="https://github.com/REZ3LIET/Pose_Estimations/blob/main/Results/face_track_result.jpg"  width=25% height=25%> <br>
 This contains the module [face_tracking_module.py](./Face_Estimation/Codes/face_tracking_module.py) which can be used to detect and track the face by drawing a bounding box around it. To detect faces at farther range set model type to 1.
 
 ### Usage
@@ -81,7 +81,7 @@ python3 Codes/face_tracking_module.py -v -p Data/Videos/humans_1.mp4
 
 ## Face_Mesh_Detection
 
-<img src="./Results/face_mesh_result.jpg"  width=25% height=25%> <br>
+<img src="https://github.com/REZ3LIET/Pose_Estimations/blob/main/Results/face_mesh_result.jpg"  width=25% height=25%> <br>
 This contains the module [face_mesh_detection_module.py](./Face_Estimation/Codes/face_mesh_detection_module.py) which can be used to detect and track the face by drawing a mesh on it around it. Max 2 faces can be detected.
 
 ### Usage
