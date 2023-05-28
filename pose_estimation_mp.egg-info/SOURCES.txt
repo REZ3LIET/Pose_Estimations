@@ -2,6 +2,8 @@ LICENSE
 README.md
 pose_estimation_mp
 setup.py
+Body_Tracking/__init__.py
+Hand_Tacking/__init__.py
 pose_estimation_mp.egg-info/PKG-INFO
 pose_estimation_mp.egg-info/SOURCES.txt
 pose_estimation_mp.egg-info/dependency_links.txt
