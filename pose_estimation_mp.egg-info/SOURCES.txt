@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pose_estimation_mp
+setup.py
+pose_estimation_mp.egg-info/PKG-INFO
+pose_estimation_mp.egg-info/SOURCES.txt
+pose_estimation_mp.egg-info/dependency_links.txt
+pose_estimation_mp.egg-info/requires.txt
+pose_estimation_mp.egg-info/top_level.txt
